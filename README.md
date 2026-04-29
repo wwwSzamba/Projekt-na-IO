@@ -1,5 +1,5 @@
 # Projekt-na-IO
 
-czesc mordziaty o to projekt z bimbo bimbo
+czesc morderczko nick wwwSzamba, następnym razem pamiętaj, aby wylogować się z githuba, wszystko jest tak jak było nic nie zmieniałem, miłego dnia
 
-<img src="https://media.tenor.com/IZqylGLe1PwAAAAe/angry-bird-angry-bird-red.png" width="200">
+<img src="[https://pbs.twimg.com/media/EWyHaiLXsAA_w-Z.png]" width="500">
