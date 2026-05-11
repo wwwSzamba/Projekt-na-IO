@@ -1,0 +1,147 @@
+opis przypadku użycia „składanie modlitwy”:
+
+1. uczestniczący aktorzy
+
+    Śmiertelnik
+
+2. podstawowy ciąg zdarzeń
+
+    System wyświetla formularz pozwalający na złożenie modlitwy.
+
+    Śmiertelnik określa charakter swojej potrzeby, wybiera boga, do którego kieruje prośbę, oraz deklaruje i dołącza ofiarę (przypadek użycia weryfikacja modlitwy).
+
+    Śmiertelnik zatwierdza wysłanie modlitwy.
+
+    System automatycznie weryfikuje poprawność danych oraz unikalność zadeklarowanej ofiary.
+
+    System zapisuje dane w rejestrze modlitw, nadając im status „Wpłynęła”.
+
+    System przekazuje modlitwę do skrzynki odbiorczej odpowiedniego bóstwa.
+
+    System informuje o pomyślnym przesłaniu modlitwy, wyświetlając odpowiedni komunikat.
+
+3. alternatywne ciągi zdarzeń
+
+    a) System stwierdza niekompletność danych lub brak zadeklarowanej ofiary
+
+        System ponownie wyświetla formularz z zaznaczonymi polami, w których stwierdzono błędy lub braki.
+
+    b) Śmiertelnik rezygnuje z wysłania modlitwy przed jej ostatecznym zatwierdzeniem
+
+        powrót Systemu do stanu sprzed wywołania funkcji bez dokonywania żadnych zmian w rejestrze.
+
+4. zależności czasowe
+
+    a) częstotliwość wykonania: ~1 000 - 5 000 razy na dobę (w skali całego świata śmiertelników)
+
+    b) przewidywane spiętrzenia: w okresie wojen, susz, zaraz lub przeddzień świąt olimpijskich
+
+    c) typowy czas realizacji: ~2 min.
+
+    d) maksymalny czas realizacji: nieokreślony
+
+5. wartości uzyskiwane przez aktorów po zakończeniu przypadku użycia
+
+    komunikat informujący o pomyślnym wysłaniu modlitwy do wybranego boga,
+
+    wpis w rejestrze modlitw ze statusem „Wpłynęła” przekazany do odpowiedniego bóstwa.
+
+opis przypadku użycia „zlecanie interwencji”:
+
+opis przypadku użycia „zlecanie interwencji”:
+
+1. uczestniczący aktorzy
+
+    Bóg
+
+2. podstawowy ciąg zdarzeń
+
+    System wyświetla panel zarządzania interwencjami boskimi.
+
+    Bóg wskazuje określony region świata, wybiera rodzaj interwencji (zjawisko naturalne, błogosławieństwo lub kara) oraz określa jej pożądaną skalę (przypadek użycia monitorowanie skali interwencji).
+
+    Bóg zatwierdza uruchomienie interwencji.
+
+    System weryfikuje skalę działania i potwierdza, że nie wykracza ona poza obszar jednej krainy.
+
+    System zapisuje interwencję w rejestrze ze statusem „W toku”.
+
+    System automatycznie uwzględnia uruchomioną interwencję przy obliczaniu poziomu równowagi świata (przypadek użycia obliczanie wskaźnika Równowagi Świata).
+
+    System informuje Boga o pomyślnym rozpoczęciu monitorowania i rejestracji interwencji.
+
+3. alternatywne ciągi zdarzeń
+
+    a) System stwierdza, że interwencja ma wielką skalę i wpływa na wiele krain jednocześnie
+
+        System blokuje automatyczny start, zmienia status wniosku na „Oczekuje na akceptację Zeusa” i wysyła zapytanie do najwyższego władcy (przypadek użycia zatwierdzanie interwencji o wielkiej skali).
+
+    b) Bóg rezygnuje ze zlecenia interwencji przed zatwierdzeniem
+
+        powrót Systemu do stanu sprzed wywołania funkcji bez dokonywania zmian w rejestrze.
+
+4. zależności czasowe
+
+    a) częstotliwość wykonania: ~50 - 100 razy dziennie (rozłożone na wszystkich bogów)
+
+    b) przewidywane spiętrzenia: w okresach wzmożonych konfliktów między śmiertelnikami
+
+    c) typowy czas realizacji: ~1 min.
+
+    d) maksymalny czas realizacji: nieokreślony (zależny od czasu reakcji Zeusa przy dużej skali interwencji)
+
+5. wartości uzyskiwane przez aktorów po zakończeniu przypadku użycia
+
+    uruchomienie i rejestracja nowej interwencji w bazie danych,
+
+    aktualizacja globalnego poziomu równowagi świata na podstawie parametrów interwencji.
+
+opis przypadku użycia „przeprowadzenie sądu nad duszą”:
+
+1. uczestniczący aktorzy
+
+    Hades
+
+2. podstawowy ciąg zdarzeń
+
+    System wyświetla panel sędziowski z listą nowo zarejestrowanych dusz, które oczekują na proces oceny.
+
+    Hades wybiera z listy duszę śmiertelnika, którego proces ma się rozpocząć.
+
+    System prezentuje zgromadzone w bazie danych informacje dotyczące ziemskiego życia wybranego śmiertelnika.
+
+    Hades analizuje przedstawione dane i podejmuje decyzję o dalszym losie zmarłego.
+
+    Hades przypisuje duszę do odpowiedniej strefy w Podziemiach.
+
+    System automatycznie archiwizuje wydany wyrok oraz pełne dane dotyczące życia śmiertelnika.
+
+    System aktualizuje statystyki obciążenia poszczególnych obszarów zaświatów.
+
+    System informuje o pomyślnym zakończeniu procesu sądu i przeniesieniu duszy, wyświetlając odpowiedni komunikat.
+
+3. alternatywne ciągi zdarzeń
+
+    a) System wykazuje brak wystarczających danych dotyczących ziemskiego życia śmiertelnika
+
+        System wstrzymuje proces i wysyła zapytanie o uzupełnienie rejestru do Mojr odpowiedzialnych za ludzki los.
+
+    b) Hades rezygnuje z wydania wyroku i zamyka formularz przed zatwierdzeniem
+
+        powrót Systemu do stanu sprzed wywołania funkcji bez dokonywania zmian w statusie duszy i bez przypisywania jej strefy.
+
+4. zależności czasowe
+
+    a) częstotliwość wykonania: ~500 - 2 000 razy na dobę (zależnie od aktualnej śmiertelności ludzi na świecie)
+
+    b) przewidywane spiętrzenia: w okresach wojen, klęsk żywiołowych oraz przeciążenia Podziemi
+
+    c) typowy czas realizacji: ~1-2 min.
+
+    d) maksymalny czas realizacji: nieokreślony
+
+5. wartości uzyskiwane przez aktorów po zakończeniu przypadku użycia
+
+    decyzja o dalszym losie duszy śmiertelnika i przypisanie jej do właściwej strefy,
+
+    zarchiwizowane dane w rejestrze Podziemi oraz zaktualizowany stan liczby dusz w poszczególnych obszarach, który Hades może stale monitorować.
