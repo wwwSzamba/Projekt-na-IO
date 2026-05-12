@@ -1,0 +1,120 @@
+5.2. Uporządkowany alfabetycznie wykaz klas
+Bog
+
+Abstrakcyjna klasa bazowa definiująca bóstwa olimpijskie.
+
+• idBoga (int): Unikalny numer identyfikacyjny boga w systemie.
+
+• imie (String): Nazwa własna bóstwa.
+
+• domena (String): Obszar kompetencji i władzy (np. Morze, Wojna).
+
+Dusza
+
+Reprezentacja bytu pośmiertnego zarejestrowanego w Podziemiach.
+
+• idDuszy (int): Identyfikator w rejestrze zmarłych.
+
+• werdykt (String): Wynik procesu sądowego decydujący o losie duszy.
+
+• strefaDocelowa (String): Przypisany sektor (np. Elizjum, Tartar, Asfodel).
+
+Hades
+
+Klasa zarządzająca królestwem zmarłych i logistyką dusz (dziedziczy po Bog).
+
+• liczbaDusz (int): Bieżący licznik dusz przebywających w Podziemiach.
+
+• limitPodziemi (int): Maksymalna przepustowość i pojemność sektorów.
+
+Heros
+
+Śmiertelnik o specjalnym statusie, wykonujący zadania dla bogów (dziedziczy po Smiertelnik).
+
+• poziomChwaly (int): Wskaźnik doświadczenia i uznania wśród bogów.
+
+• statusMisji (String): Opis aktualnego etapu lub stanu realizowanego zadania.
+
+Interwencja
+
+Działanie zainicjowane przez boga, mające bezpośredni wpływ na świat śmiertelników.
+
+• idInterwencji (int): Unikalny identyfikator operacji w systemie.
+
+• typ (String): Kategoria działania (np. Błogosławieństwo, Katastrofa, Kara).
+
+• skala (String): Zasięg oddziaływania (Lokalna / Globalna).
+
+• region (String): Konkretny obszar geograficzny podlegający interwencji.
+
+Misja
+
+Zadanie strategiczne generowane przez bogów w celu realizacji przez herosów.
+
+• idMisji (int): Unikalny numer porządkowy zadania.
+
+• cel (String): Szczegółowy opis celu do osiągnięcia przez herosa.
+
+• nagroda (String): Opis gratyfikacji przyznawanej po pomyślnym ukończeniu.
+
+Modlitwa
+
+Prośba lub postulat przesłany przez śmiertelnika do konkretnego bóstwa.
+
+• idModlitwy (int): Identyfikator zgłoszenia w Świątyni Modlitw.
+
+• tresc (String): Tekstowy opis prośby lub potrzeby śmiertelnika.
+
+• ofiara (String): Opis rodzaju i wartości złożonego daru ofiarnego.
+
+• status (String): Stan rozpatrzenia (Oczekująca / Zaakceptowana / Odrzucona / Kara).
+
+Mojry
+
+Klasa odpowiedzialna za nadzór nad przeznaczeniem i cyklem życia śmiertelników.
+
+• Zarządza instancjami klasy NicZycia i monitoruje ich stan.
+
+NicZycia
+
+Obiekt techniczny monitorujący długość i status życia każdego śmiertelnika.
+
+• idNici (int): Powiązanie konkretnej nici z identyfikatorem śmiertelnika.
+
+• dlugosc (float): Wartość liczbowa określająca czas pozostały do zgonu.
+
+• czyPrzecieta (boolean): Status życia (True = Zmarły, automatyczna notyfikacja Podziemi).
+
+Olimp (SystemOlympus)
+
+Główny moduł zarządzający systemem i monitorujący wskaźnik Równowagi Świata.
+
+• nazwa (String): Nazwa instancji systemu zarządzającego.
+
+• wskaznikRownowagi (float): Globalny wskaźnik stabilności (WRŚ) wyliczany z danych analitycznych.
+
+Smiertelnik
+
+Podstawowy obiekt reprezentujący jednostkę ludzką w systemie.
+
+• idSmiertelnika (int): Unikalny identyfikator człowieka w ewidencji ludności.
+
+• imie (String): Imię lub unikalne oznaczenie jednostki.
+
+• poziomPoboznosci (int): Wartość wpływająca na priorytet rozpatrywania modlitw.
+
+Wyrocznia
+
+Zaawansowany moduł analityczny prognozujący przyszłe zagrożenia.
+
+• idRaportu (int): Unikalny numer bieżącej analizy danych.
+
+• prognozowaneZagrozenie (String): Opis wykrytych anomalii mogących naruszyć WRŚ.
+
+Zeus
+
+Klasa najwyższego administratora z uprawnieniami do decyzji globalnych (dziedziczy po Bog).
+
+• czyZatwierdzonoGlobalne (boolean): Flaga potwierdzająca zgodę na akcję o skali światowej.
+
+• zatwierdzInterwencje(): Metoda służąca do autoryzacji działań o krytycznym znaczeniu.
