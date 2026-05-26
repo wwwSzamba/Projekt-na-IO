@@ -1,0 +1,88 @@
+1. Opis elementów diagramu stanów dla klasy Modlitwa
+Diagram przedstawia pełny cykl przetwarzania intencji śmiertelnika – od walidacji danych wejściowych (ofiara) po finalną decyzję bóstwa i zapis w logach historycznych.
+
+Stany (States):
+
+Nowa: Stan początkowy po wysłaniu żądania. Modlitwa zostaje zarejestrowana w bazie danych i oczekuje na walidację.
+
+Weryfikowana: System sprawdza warunki formalne zgłoszenia (np. czy dołączono zadeklarowaną ofiarę).
+
+Analizowana: Stan złożony (poddiagram). Algorytm AI Wyroczni bada treść pod kątem poziomu pokory i wylicza odpowiednie współczynniki.
+
+Oczekująca: Wniosek trafia do skrzynki odbiorczej boga, oczekując na manualną decyzję w panelu administracyjnym.
+
+Zaakceptowana: Bóg wyraził zgodę na wysłuchanie prośby. Stan ten automatycznie inicjuje proces generowania Interwencji.
+
+Odrzucona: Błąd formalny lub negatywna weryfikacja zasobów ofiarnych na etapie początkowym.
+
+Zignorowana: Decyzja bóstwa o pozostawieniu modlitwy bez jakiejkolwiek odpowiedzi czy reakcji.
+
+Ukrana: Wynik skrajnego oburzenia bóstwa treścią modlitwy (np. pychą). Wyzwala procedurę kary.
+
+Zarchiwizowana: Stan końcowy. Dane są zamrażane i przenoszone do bazy historycznej w celu zachowania spójności analitycznej.
+
+Przejścia, Akcje i Warunki (Transitions, Actions & Guards):
+
+wyslijModlitwe(): Metoda wywoływana przez obiekt śmiertelnika.
+
+poprawnaOfiara == true: Warunek dozoru (guard) sprawdzający poprawność przesłanego daru.
+
+system.weryfikuj(), wyliczPokore(), wyswietlWInboxie(): Wewnętrzne operacje systemowe automatyzujące przepływ.
+
+akceptuj(), ignoruj(), zeslijKare(): Manualne akcje wykonywane przez boga z poziomu interfejsu.
+
+2. Opis elementów diagramu stanów dla klasy NicZycia
+Diagram obrazuje cykl życia ludzkiego przeznaczenia oraz automatyzację procesu przejścia jednostki w byt pośmiertny pod nadzorem Mojr oraz Hadesa.
+
+Stany (States):
+
+Aktywna: Standardowy stan nici żyjącego śmiertelnika o stabilnych parametrach życiowych i przeciętnej pobożności.
+
+Stabilna: Stan uprzywilejowany. Wysoki poziom pobożności wzmacnia strukturę nici, zmniejszając podatność na nagłe skrócenie.
+
+Zagrożona: Stan krytyczny wywoływany gwałtownym spadkiem długości nici (choroba, udział w bitwie) lub bezpośrednim wypadkiem.
+
+Przecięta: Stan złożony uruchamiany w momencie zgonu. Inicjuje procedury zamknięcia profilu i powiadomienia Podziemi.
+
+Terminowana: Stan końcowy obiektu. Nić zostaje całkowicie wyłączona z monitoringu aktywnej populacji świata.
+
+Przejścia, Akcje i Warunki (Transitions, Actions & Guards):
+
+narodzinySmiertelnika(): Zdarzenie początkowe tworzące instancję obiektu nici.
+
+dlugoscNici < 15.0 / wypadek: Warunki wejścia w stan zagrożenia życia.
+
+poziomPoboznosci > 80: Warunek przejścia do stanu stabilnego.
+
+Mojry.przetnijNic(): Krytyczne wywołanie systemowe przerywające długość nici.
+
+generujObiektDuszy(): Efekt uboczny przejścia (side-effect), wysyłający paczkę danych śmiertelnika bezpośrednio do modułu Hadesa.
+
+3. Opis elementów diagramu stanów dla klasy Interwencja
+Diagram modeluje realizację boskich działań w świecie fizycznym, uwzględniając mechanizm blokady bezpieczeństwa i autoryzacji dla zjawisk o charakterze masowym.
+
+Stany (States):
+
+Zaplanowana: Bóg zdefiniował typ interwencji (np. potop, plon) oraz obszar geograficzny.
+
+OczekującaNaAkceptację: Stan blokady bezpieczeństwa aktywowany dla działań zagrażających globalnemu Wskaźnikowi Równowagi Świata.
+
+Anulowana: Wniosek odrzucony przez Zeusa na etapie weryfikacji skali globalnej.
+
+WWDystrybucji: System przygotowuje zasoby silnika świata do poprawnego wyrenderowania anomalii w danym regionie.
+
+WTokuefekcji: Stan złożony. Trwanie fizycznego zjawiska (np. burzy) przy jednoczesnym ciągłym przeliczaniu wpływu na stabilność świata.
+
+Zakończona: Stan końcowy. Efekt anomalii całkowicie wygasł, a parametry środowiskowe wróciły do normy.
+
+Przejścia, Akcje i Warunki (Transitions, Actions & Guards):
+
+Bog.zlećInterwencje(): Inicjacja procesu przez dowolne bóstwo.
+
+skala == "Globalna" / skala == "Lokalna": Instrukcje warunkowe determinujące ścieżkę autoryzacji.
+
+Zeus.zatwierdzInterwencje() / Zeus.odrzucWniosek(): Metody decyzyjne najwyższego administratora (Zeusa).
+
+uruchom(): Wywołanie uruchamiające renderowanie zjawiska.
+
+obliczRownowage(): Ciągła metoda analityczna aktualizująca bazę Olimpu w czasie rzeczywistym.
