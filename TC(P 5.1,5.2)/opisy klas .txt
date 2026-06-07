@@ -1,120 +1,168 @@
-5.2. Uporządkowany alfabetycznie wykaz klas
 Bog
-
 Abstrakcyjna klasa bazowa definiująca bóstwa olimpijskie.
 
-• idBoga (int): Unikalny numer identyfikacyjny boga w systemie.
+Atrybuty:
 
-• imie (String): Nazwa własna bóstwa.
+- idBoga (int): Unikalny numer identyfikacyjny boga w systemie.
 
-• domena (String): Obszar kompetencji i władzy (np. Morze, Wojna).
+- imie (String): Nazwa własna bóstwa.
+
+- domena (String): Obszar kompetencji i władzy (np. Morze, Wojna).
+
+Metody:
+
++ przekazDoSkrzynki(): Metoda odbierająca zweryfikowaną modlitwę z systemu i umieszczająca ją w panelu decyzyjnym bóstwa.
 
 Dusza
-
 Reprezentacja bytu pośmiertnego zarejestrowanego w Podziemiach.
 
-• idDuszy (int): Identyfikator w rejestrze zmarłych.
+Atrybuty:
 
-• werdykt (String): Wynik procesu sądowego decydujący o losie duszy.
+- idDuszy (int): Identyfikator w rejestrze zmarłych.
 
-• strefaDocelowa (String): Przypisany sektor (np. Elizjum, Tartar, Asfodel).
+- werdykt (String): Wynik procesu sądowego decydujący o losie duszy.
+
+- strefaDocelowa (String): Przypisany sektor (np. Elizjum, Tartar, Asfodel).
+
+Metody:
+
++ pobierzAktaZycia() (String): Pobiera pełną historię czynów zmarłego na potrzeby sądu.
+
++ aktualizujSektorDuszy(strefaDocelowa, status): Przypisuje duszę do ostatecznej lokacji po wyroku.
+
++ aktualizujStatus(nowyStatus): Zmienia bieżący stan przetwarzania duszy w systemie.
 
 Hades
-
 Klasa zarządzająca królestwem zmarłych i logistyką dusz (dziedziczy po Bog).
 
-• liczbaDusz (int): Bieżący licznik dusz przebywających w Podziemiach.
+Atrybuty:
 
-• limitPodziemi (int): Maksymalna przepustowość i pojemność sektorów.
+- liczbaDusz (int): Bieżący licznik dusz przebywających w Podziemiach.
+
+- limitPodziemi (int): Maksymalna przepustowość i pojemność sektorów.
+
+Metody:
+
++ otworzSadNadDusza(idDuszy): Inicjuje proces oceny życia zmarłego.
+
++ zatwierdzWerdykt(wybranaStrefa): Finalizuje ocenę i pieczętuje los duszy.
+
++ aktualizujStatystykiOblozenia(): Odświeża dane o liczbie dusz w poszczególnych sektorach po zakończonym sądzie.
+
++ zawiesProces(): Wstrzymuje sąd w przypadku braku jednoznacznych danych.
 
 Heros
-
 Śmiertelnik o specjalnym statusie, wykonujący zadania dla bogów (dziedziczy po Smiertelnik).
 
-• poziomChwaly (int): Wskaźnik doświadczenia i uznania wśród bogów.
+Atrybuty:
 
-• statusMisji (String): Opis aktualnego etapu lub stanu realizowanego zadania.
+- poziomChwaly (int): Wskaźnik doświadczenia i uznania wśród bogów.
+
+- statusMisji (String): Opis aktualnego etapu lub stanu realizowanego zadania.
 
 Interwencja
-
 Działanie zainicjowane przez boga, mające bezpośredni wpływ na świat śmiertelników.
 
-• idInterwencji (int): Unikalny identyfikator operacji w systemie.
+Atrybuty:
 
-• typ (String): Kategoria działania (np. Błogosławieństwo, Katastrofa, Kara).
+- idInterwencji (int): Unikalny identyfikator operacji w systemie.
 
-• skala (String): Zasięg oddziaływania (Lokalna / Globalna).
+- typ (String): Kategoria działania (np. Błogosławieństwo, Katastrofa, Kara).
 
-• region (String): Konkretny obszar geograficzny podlegający interwencji.
+- skala (String): Zasięg oddziaływania (Lokalna / Globalna).
+
+- region (String): Konkretny obszar geograficzny podlegający interwencji.
 
 Misja
-
 Zadanie strategiczne generowane przez bogów w celu realizacji przez herosów.
 
-• idMisji (int): Unikalny numer porządkowy zadania.
+Atrybuty:
 
-• cel (String): Szczegółowy opis celu do osiągnięcia przez herosa.
+- idMisji (int): Unikalny numer porządkowy zadania.
 
-• nagroda (String): Opis gratyfikacji przyznawanej po pomyślnym ukończeniu.
+- cel (String): Szczegółowy opis celu do osiągnięcia przez herosa.
+
+- nagroda (String): Opis gratyfikacji przyznawanej po pomyślnym ukończeniu.
 
 Modlitwa
-
 Prośba lub postulat przesłany przez śmiertelnika do konkretnego bóstwa.
 
-• idModlitwy (int): Identyfikator zgłoszenia w Świątyni Modlitw.
+Atrybuty:
 
-• tresc (String): Tekstowy opis prośby lub potrzeby śmiertelnika.
+- idModlitwy (int): Identyfikator zgłoszenia w Świątyni Modlitw.
 
-• ofiara (String): Opis rodzaju i wartości złożonego daru ofiarnego.
+- tresc (String): Tekstowy opis prośby lub potrzeby śmiertelnika.
 
-• status (String): Stan rozpatrzenia (Oczekująca / Zaakceptowana / Odrzucona / Kara).
+- ofiara (String): Opis rodzaju i wartości złożonego daru ofiarnego.
+
+- status (String): Stan rozpatrzenia (Oczekująca / Zaakceptowana / Odrzucona / Kara).
 
 Mojry
-
 Klasa odpowiedzialna za nadzór nad przeznaczeniem i cyklem życia śmiertelników.
 
-• Zarządza instancjami klasy NicZycia i monitoruje ich stan.
+(Klasa zarządcza): Zarządza instancjami klasy NicZycia i monitoruje ich stan. Brak dedykowanych atrybutów i metod w podstawowym cyklu.
 
 NicZycia
-
 Obiekt techniczny monitorujący długość i status życia każdego śmiertelnika.
 
-• idNici (int): Powiązanie konkretnej nici z identyfikatorem śmiertelnika.
+Atrybuty:
 
-• dlugosc (float): Wartość liczbowa określająca czas pozostały do zgonu.
+- idNici (int): Powiązanie konkretnej nici z identyfikatorem śmiertelnika.
 
-• czyPrzecieta (boolean): Status życia (True = Zmarły, automatyczna notyfikacja Podziemi).
+- dlugosc (float): Wartość liczbowa określająca czas pozostały do zgonu.
+
+- czyPrzecieta (boolean): Status życia (True = Zmarły, automatyczna notyfikacja Podziemi).
 
 Olimp (SystemOlympus)
-
 Główny moduł zarządzający systemem i monitorujący wskaźnik Równowagi Świata.
 
-• nazwa (String): Nazwa instancji systemu zarządzającego.
+Atrybuty:
 
-• wskaznikRownowagi (float): Globalny wskaźnik stabilności (WRŚ) wyliczany z danych analitycznych.
+- nazwa (String): Nazwa instancji systemu zarządzającego.
+
+- wskaznikRownowagi (float): Globalny wskaźnik stabilności (WRŚ) wyliczany z danych analitycznych.
+
+Metody:
+
++ weryfikujModlitwe(): Sprawdza poprawność formalną zgłoszenia (np. obecność ofiary).
+
++ zapiszModlitwe(dane, status): Rejestruje modlitwę w głównej bazie danych po jej weryfikacji.
 
 Smiertelnik
-
 Podstawowy obiekt reprezentujący jednostkę ludzką w systemie.
 
-• idSmiertelnika (int): Unikalny identyfikator człowieka w ewidencji ludności.
+Atrybuty:
 
-• imie (String): Imię lub unikalne oznaczenie jednostki.
+- idSmiertelnika (int): Unikalny identyfikator człowieka w ewidencji ludności.
 
-• poziomPoboznosci (int): Wartość wpływająca na priorytet rozpatrywania modlitw.
+- imie (String): Imię lub unikalne oznaczenie jednostki.
+
+- poziomPoboznosci (int): Wartość wpływająca na priorytet rozpatrywania modlitw.
+
+Metody:
+
++ wyslijModlitwe(bostwo, tresc, ofiara): Inicjuje proces komunikacji z systemem Olimpu.
 
 Wyrocznia
-
 Zaawansowany moduł analityczny prognozujący przyszłe zagrożenia.
 
-• idRaportu (int): Unikalny numer bieżącej analizy danych.
+Atrybuty:
 
-• prognozowaneZagrozenie (String): Opis wykrytych anomalii mogących naruszyć WRŚ.
+- idRaportu (int): Unikalny numer bieżącej analizy danych.
+
+- prognozowaneZagrozenie (String): Opis wykrytych anomalii mogących naruszyć WRŚ.
+
+Metody:
+
++ generujRekomendacjeStrefy(czyny): Na podstawie przekazanych akt życia, algorytm oblicza i podpowiada Hadesowi najbardziej sprawiedliwy werdykt.
 
 Zeus
-
 Klasa najwyższego administratora z uprawnieniami do decyzji globalnych (dziedziczy po Bog).
 
-• czyZatwierdzonoGlobalne (boolean): Flaga potwierdzająca zgodę na akcję o skali światowej.
+Atrybuty:
 
-• zatwierdzInterwencje(): Metoda służąca do autoryzacji działań o krytycznym znaczeniu.
+- czyZatwierdzonoGlobalne (boolean): Flaga potwierdzająca zgodę na akcję o skali światowej.
+
+Metody:
+
++ zatwierdzInterwencje(): Metoda służąca do autoryzacji działań o krytycznym znaczeniu.
